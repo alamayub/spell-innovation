@@ -6,7 +6,6 @@
         <v-img alt="Spell Innovation Name" class="d-none d-sm-flex" contain src="../assets/logo_text.png" width="180" />
       </div>
       <v-spacer />
-      <!-- <v-btn tile text v-for="(item, i) in items" :key="i" color="primary">{{ item.name }}</v-btn> -->
       <div class="main-menu">
         <ul class="d-flex">
           <li v-for="(item, i) in items" :key="i">

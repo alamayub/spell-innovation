@@ -1,5 +1,5 @@
 <template>
-  <v-footer padless dark color="primary">
+  <v-footer padless dark color="secondary">
     <v-container class="footer">  
       <v-row class="pb-5">
         <v-col cols="6" sm="6" md="3" class="services">
@@ -36,10 +36,19 @@
       </v-row> 
       <div style="height: 1px; background-color: white;" class="mb-5"></div>
       <div class="d-md-flex justify-space-between align-center">
-        <div class="text-center">Copyright @{{ new Date().getFullYear() }} SPELL INNOVATION. All Right Reserved</div>
-        <div class="terms mt-3 mt-sm-3 mt-md-0 justify-center">
-          <span class="px-3 py-2" @click.stop="goto('/')">Terms & Conditions</span>
-          <span class="px-3 py-2" @click.stop="goto('/')">Privacy Policy</span>
+        <div class="text-center">Copyright @{{ new Date().getFullYear() }} <b>SPELL INNOVATION.</b> All Right Reserved</div>
+        <div class="mt-3 mt-sm-3 mt-md-0 d-flex flex-column flex-sm-row justify-space-between sc" style="grid-gap: 16px; width: 50%;">
+          <div class="terms justify-center">
+            <span class="px-3" @click.stop="goto('/')">Terms & Conditions</span>
+            <span class="px-3" @click.stop="goto('/')">Privacy Policy</span>
+          </div>
+          <div class="d-flex justify-center" style="grid-gap: 10px;">
+            <div v-for="(social, s) in socials" :key="s" class="ft-social">
+              <a :href="social.href" target="_blank" rel="noopener noreferrer">
+                <v-icon size="20" class="ico">{{ social.icon }}</v-icon>
+              </a>
+            </div>
+          </div>
         </div>
       </div>  
     </v-container>
@@ -76,6 +85,12 @@ export default {
       { title: 'About', to: '/' },
       { title: 'Activities', to: '/' },
     ], 
+    socials: [
+      { title: 'Facebook', icon: 'mdi-facebook', href: 'https://www.facebook.com' },
+      { title: 'Twitter', icon: 'mdi-twitter', href: 'https://www.twitter.com' },
+      { title: 'LinkedIn', icon: 'mdi-linkedin', href: 'https://www.linkedin.com' },
+      { title: 'Instagram', icon: 'mdi-instagram', href: 'https://www.instagram.com' }
+    ]
   }),
   methods: {
     goto(link) {
@@ -104,6 +119,10 @@ export default {
 .terms span {
   border: 1px solid white;
   transition: 250ms ease-in-out;
+  height: 40px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 .terms span:hover { border-radius: 20px; }
 .links span, .terms span {
@@ -112,38 +131,31 @@ export default {
   cursor: pointer;
 }
 .links span:last-child { margin-bottom: 0 !important; }
+
+/* Footer Social */
+.ft-social {
+  height: 40px;
+  width: 40px;
+  border: 1px solid white;
+  transition: ease-in-out 250ms;
+}
+.ft-social a { 
+  height: 100%;
+  width: 100%;
+  text-decoration: none; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ft-social:hover {
+  background-color: white;
+  border-radius: 50%;
+}
+.ft-social:hover .ico { color: purple; }
+@media (max-width: 960px) {
+  .sc { width: 100% !important; }
+}
+@media (min-width: 1263px) {
+  .sc { width: 60% !important; }
+}
 </style>
-
-
-
-<!--
-<v-col cols="12" sm="6" md="4">
-          <img src="../assets/logo.png" height="100" alt="Health Sewa logo">
-          <div class="py-2" style="line-height: 1.2;">Birgunj, 44300<br>Province No. 2 Nepal</div>
-          <div class="mt-2">
-            <div v-for="(contact, c) in contacts" :key="c">
-              <v-icon size="16">{{ contact.icon }}</v-icon>
-              <span class="ml-2">{{ contact.title }}</span>
-            </div>
-          </div>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" class="services">
-          <div class="other-title">
-            <span style="border-bottom: 1px solid white;">Nepal Health Sewa</span>
-          </div>
-          <div class="links">
-            <span v-for="(service, s) in services" :key="s" @click.stop="goto(service.to)">{{ service.title  }}</span>
-          </div>
-        </v-col>
-        <v-col cols="12" sm="6" md="4" class="services">
-          <div class="other-title">
-            <span style="border-bottom: 1px solid white;">Connect With Us</span>
-          </div>
-          <div class="links">
-            <a v-for="(social, s) in socials" :key="s" target="_blank" :href="social.to">
-              <v-icon size="20" class="icon">{{ social.icon }}</v-icon>
-              <span class="pl-2">{{ social.title }}</span>
-            </a>
-          </div>
-        </v-col>
--->

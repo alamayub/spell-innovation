@@ -3,7 +3,8 @@
     <div class="banner">
       <div class="content text-h4 text-sm-h3 text-md-h2 text-lg-h1">Innovation For<br>Better Life</div>
     </div>
-    <v-container>
+    <v-container class="mt-8">
+      <div class="display-1 mb-3">Businesses Of Spell Innovation</div>
       <v-row>
         <v-col cols="6" sm="6" md="4" v-for="(b, i) in business" :key="i">
           <div class="business grey lighten-4">
@@ -72,33 +73,34 @@ export default {
   box-shadow: 5px 10px 15px 0 rgba(0, 0, 0, .25);
   /* background: linear-gradient(to bottom, orange 0%, purple 100%); */
 }
-/* .business:hover {
-  border-radius: 10px;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .25);
-  border: 2px solid orange;
-} */
+.bus-title { font-size: 28px; line-height: 1.25; }
 
 
 /* Media Query */
 @media (max-width: 1250px) {
   .banner { height: 75vh; }
   .business img { height: 130px; }
+  .bus-title { font-size: 25px; }
 }
 @media (max-width: 960px) {
   .banner { height: 60vh; }
   .business img { height: 120px; }
+  .bus-title { font-size: 22px; }
 }
 @media (max-width: 800px) {
   .banner { height: 45vh; }
   .business img { height: 110px; }
+  .bus-title { font-size: 20px; }
 }
 @media (max-width: 600px) {
   .banner { height: 35vh; }
   .business { min-height: 25vh; }
   .business img { height: 100px; }
+  .bus-title { font-size: 18px; }
 }
 @media (max-width: 450px) {
   .banner { height: 30vh; }
   .business img { height: 90px; }
+  .bus-title { font-size: 16px; }
 }
 </style>
