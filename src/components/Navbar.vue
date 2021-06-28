@@ -9,7 +9,7 @@
       <div class="main-menu">
         <ul class="d-flex">
           <li v-for="(item, i) in items" :key="i">
-            <v-btn color="primary" class="text-capitalize" style="font-weight: 400;" tile text min-height="62">{{ item.name }}</v-btn>
+            <v-btn color="primary" class="text-capitalize" style="font-weight: 400;" tile text min-height="62" :href="item.to">{{ item.name }}</v-btn>
             <v-list class="list pa-0" v-if="item.children">
               <v-list-item-group v-model="selectedItem" color="primary">
                 <v-list-item style="min-height: 60px;" v-for="(child, c) in item.children" :key="c" link>
@@ -29,10 +29,10 @@ export default {
   data: () => ({
     selectedItem: 0,
     items: [
-      { name: 'Home', to: '/' },
+      { name: 'Home', to: '#home' },
       { 
         name: 'Business', 
-        to: '/',
+        to: '#business',
         children: [
           { name: 'Spell Soft', to: '' },
           { name: 'Spell Digital Media', to: '' },
@@ -42,16 +42,16 @@ export default {
           { name: 'Eduspell' }
         ]
       },
-      { name: 'About Us', to: '/' },
+      { name: 'About Us', to: '#about' },
       { 
-        name: 'Resources', 
-        to: '/',
+        name: 'Services', 
+        to: '#services',
         children: [
           { name: 'News', to: '' },
           { name: 'Blogs', to: '' }
         ]
       },
-      { name: 'Contact', to: '/' },
+      { name: 'Contact', to: '#contact' },
     ]
   })
 }

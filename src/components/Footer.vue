@@ -3,25 +3,25 @@
     <v-container class="footer">  
       <v-row class="pb-5">
         <v-col cols="6" sm="6" md="3" class="services">
-          <div class="other-title">
+          <!-- <div class="other-title">
             <span style="border-bottom: 1px solid white;">Company</span>
-          </div>
+          </div> -->
           <div class="links">
             <span v-for="(c, i) in company" :key="i" @click.stop="goto(c.to)">{{ c.title  }}</span>
           </div>
         </v-col>
         <v-col cols="6" sm="6" md="3" class="services">
-          <div class="other-title">
+          <!-- <div class="other-title">
             <span style="border-bottom: 1px solid white;">Business</span>
-          </div>
+          </div> -->
           <div class="links">
             <span v-for="(b, i) in business" :key="i" @click.stop="goto(b.to)">{{ b.title  }}</span>
           </div>
         </v-col>
         <v-col cols="4" sm="6" md="3" class="services">
-          <div class="other-title">
+          <!-- <div class="other-title">
             <span style="border-bottom: 1px solid white;">Spell</span>
-          </div>
+          </div> -->
           <div class="links">
             <span v-for="(s, i) in spell" :key="i" @click.stop="goto(s.to)">{{ s.title  }}</span>
           </div>
