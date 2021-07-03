@@ -1,12 +1,11 @@
 <template>
   <div>
     <v-app-bar app color="white" elevate-on-scroll>
-      <div class="container pa-0 d-flex justify-space-between align-center">
-        <div class="d-flex">
+      <div class="container pa-0 d-flex justify-space-between align-center" style="width: 100%;">
+        <div>
           <v-img alt="Spell Innovation Logo" class="shrink d-block d-sm-block d-md-none" contain src="../assets/logo.png" transition="scale-transition" width="55" />
           <v-img alt="Sepll Innovation Logo & Name" class="shrink d-none d-sm-none d-md-block" contain src="../assets/logo_text.png" transition="scale-transition" width="170" />
         </div>
-
         <v-spacer></v-spacer>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-block d-sm-block d-md-none secondary--text"></v-app-bar-nav-icon>
         <div class="d-none d-sm-none d-md-block">
