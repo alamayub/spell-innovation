@@ -23,10 +23,14 @@ export default {
 <style>
 * { 
   text-decoration: none;
-  font-family: courier,arial,helvetica; 
+  font-family: courier, arial, helvetica; 
 }
 html { scroll-behavior: smooth; }
-.container { max-width: 1250px !important; }
+.container { 
+  max-width: 1250px !important; 
+  margin-right: auto;
+  margin-left: auto;
+}
 
 /* Test banner */
 .text__banner {
