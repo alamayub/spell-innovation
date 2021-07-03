@@ -5,18 +5,13 @@ import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
 
+Vue.config.productionTip = false
+
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-Vue.config.productionTip = false
-
-import VueMeta from 'vue-meta'
-Vue.use(VueMeta)
-
 new Vue({
-  created () {
-    AOS.init()
-  },
+  created () { AOS.init() },
   router,
   store,
   vuetify,

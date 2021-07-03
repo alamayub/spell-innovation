@@ -1,70 +1,73 @@
 <template>
-  <v-footer padless dark color="secondary">
-    <v-container class="footer">  
-      <v-row class="pb-5">
-        <v-col cols="6" sm="6" md="3" class="services">
-          <!-- <div class="other-title">
-            <span style="border-bottom: 1px solid white;">Company</span>
-          </div> -->
-          <div class="links">
-            <span v-for="(c, i) in company" :key="i" @click.stop="goto(c.to)">{{ c.title  }}</span>
+  <v-footer padless style="background: linear-gradient(90deg, rgba(243,108,39,1) 0%, rgba(156,39,176,1) 100%);" class="py-4 py-sm-8 py-md-12 py-lg-16" dark>
+    <div class="container">
+      <div class="footer mb-6">
+        <div class="text-center">
+          <div class="footer__logo">
+            <img src="../assets/logo_text.png" alt="Spell Innovation Logo & Text" >
           </div>
-        </v-col>
-        <v-col cols="6" sm="6" md="3" class="services">
-          <!-- <div class="other-title">
-            <span style="border-bottom: 1px solid white;">Business</span>
-          </div> -->
-          <div class="links">
-            <span v-for="(b, i) in business" :key="i" @click.stop="goto(b.to)">{{ b.title  }}</span>
+          <div class="mt-3 d-flex flex-wrap justify-center" style="grid-gap: 8px;">
+            <v-btn icon v-for="(social, i) in socials" :key="i" class="white primary--text" target="_blank" :href="social.to">
+              <v-icon size="18">{{ social.icon }}</v-icon>
+            </v-btn>  
           </div>
-        </v-col>
-        <v-col cols="4" sm="6" md="3" class="services">
-          <!-- <div class="other-title">
-            <span style="border-bottom: 1px solid white;">Spell</span>
-          </div> -->
-          <div class="links">
-            <span v-for="(s, i) in spell" :key="i" @click.stop="goto(s.to)">{{ s.title  }}</span>
+        </div>
+        <div>
+          <div class="footer__content__title">
+            <span>Company</span>
+          </div>  
+          <div class="d-flex flex-column">
+            <span v-for="(c, i) in company" :key="i">{{ c.title }}</span>  
           </div>
-        </v-col>
-        <v-col cols="8" sm="6" md="3">
-          <div class="title">SPELL INNOVATION Pvt. Ltd.</div>
-          <div v-for="(c, i) in contacts" :key="i">
-            <v-icon size="20">{{ c.icon }}</v-icon>
-            <span class="ml-2">{{ c.title }}</span>
+        </div>
+        <div>
+          <div class="footer__content__title">
+            <span>Business</span>
+          </div>  
+          <div class="d-flex flex-column">
+            <span v-for="(c, i) in business" :key="i">{{ c.title }}</span>  
           </div>
-        </v-col>
-      </v-row> 
-      <div style="height: 1px; background-color: white;" class="mb-5"></div>
-      <div class="d-md-flex justify-space-between align-center">
-        <div class="text-center">Copyright @{{ new Date().getFullYear() }} <b>SPELL INNOVATION.</b> All Right Reserved</div>
-        <div class="mt-3 mt-sm-3 mt-md-0 d-flex flex-column flex-sm-row justify-space-between sc" style="grid-gap: 16px; width: 50%;">
-          <div class="terms justify-center">
-            <span class="px-3" @click.stop="goto('/')">Terms & Conditions</span>
-            <span class="px-3" @click.stop="goto('/')">Privacy Policy</span>
+        </div>
+        <div>
+          <div class="footer__content__title">
+            <span>Foundation</span>
+          </div>  
+          <div class="d-flex flex-column">
+            <span v-for="(c, i) in spell" :key="i">{{ c.title }}</span>  
           </div>
-          <div class="d-flex justify-center" style="grid-gap: 10px;">
-            <div v-for="(social, s) in socials" :key="s" class="ft-social">
-              <a :href="social.href" target="_blank" rel="noopener noreferrer">
-                <v-icon size="20" class="ico">{{ social.icon }}</v-icon>
-              </a>
+        </div>
+        <div>
+          <div class="footer__content__title">
+            <p style="lin-height: 1;"><strong>SPELL INNOVATION</strong>&nbsp;Pvt. Ltd.</p>
+          </div>  
+          <div style="display: grid; grid-gap: 4px;">
+            <div v-for="(c, i) in contacts" :key="i" class="d-flex" style="grid-gap: 8px;">
+              <div><v-icon size="20">{{ c.icon }}</v-icon></div>
+              <div>{{ c.title }}</div>
             </div>
           </div>
         </div>
       </div>  
-    </v-container>
+      <div class="pt-4 text-center d-flex flex-column flex-md-row align-center justify-space-between" style="border-top: 1px solid #fff;">
+        <div> Copyright @{{ new Date().getFullYear() }} <strong>SPELL INNOVATION.</strong> All Right Reserved</div>  
+        <div class="mt-3 mt-md-0">
+          <v-btn outlined tile class="mr-2 text-capitalize">Terms & Conditions</v-btn>  
+          <v-btn outlined tile class="text-capitalize">Privacy Policy</v-btn>
+        </div>
+      </div>  
+    </div>
   </v-footer>
 </template>
 
 <script>
 export default {
   data: () => ({
-    contacts: [
-      { icon: 'mdi-map-marker', title: 'Baneshwor-10, Kathmandu' },
-      { icon: 'mdi-email', title: 'contact@spellinnovation.com' },
-      { icon: 'mdi-phone-classic', title: '01450000' },
-      { icon: 'mdi-cellphone', title: '+9779823009044' },
-      { icon: 'mdi-cellphone', title: '+9779823009045' }
-    ], 
+    socials: [
+      { icon: 'mdi-facebook', to: 'https://www.facebook.com' },
+      { icon: 'mdi-twitter', to: 'https://www.facebook.com' },
+      { icon: 'mdi-linkedin', to: 'https://www.facebook.com' },
+      { icon: 'mdi-instagram', to: 'https://www.facebook.com' }
+    ],
     company: [
       { title: 'About Us', to: '/' },
       { title: 'Careers', to: '/' },
@@ -81,81 +84,52 @@ export default {
       { title: 'Spell Digital Media', to: '/' },
     ],
     spell: [
-      { title: 'Foundation', to: '/' },
       { title: 'About', to: '/' },
       { title: 'Activities', to: '/' },
     ], 
-    socials: [
-      { title: 'Facebook', icon: 'mdi-facebook', href: 'https://www.facebook.com' },
-      { title: 'Twitter', icon: 'mdi-twitter', href: 'https://www.twitter.com' },
-      { title: 'LinkedIn', icon: 'mdi-linkedin', href: 'https://www.linkedin.com' },
-      { title: 'Instagram', icon: 'mdi-instagram', href: 'https://www.instagram.com' }
-    ]
-  }),
-  methods: {
-    goto(link) {
-      if(this.$route.path != link) this.$router.push(link)
-    }
-  }
+    contacts: [
+      { icon: 'mdi-map-marker', title: 'Baneshwor-10, Kathmandu' },
+      { icon: 'mdi-email', title: 'contact@spellinnovation.com' },
+      { icon: 'mdi-phone-classic', title: '01450000' },
+      { icon: 'mdi-cellphone', title: '+9779823009044' },
+      { icon: 'mdi-cellphone', title: '+9779823009045' }
+    ],
+  })  
 }
 </script>
 
 <style scoped>
-.footer { margin: 50px auto 30px auto; }
-.other-title {
-  font-size: 25px;
-  margin-bottom: 8px;
-}
-.links {
-  display: inline-flex;
-  flex-direction: column;
-  grid-gap: 10px;
-}
-.terms { 
-  display: flex;
-  flex-direction: row; 
-  grid-gap: 16px;
-}
-.terms span {
-  border: 1px solid white;
-  transition: 250ms ease-in-out;
-  height: 40px;
-  line-height: 1;
-  display: flex;
-  align-items: center;
-}
-.terms span:hover { border-radius: 20px; }
-.links span, .terms span {
-  color: white !important;
-  line-height: 1;
-  cursor: pointer;
-}
-.links span:last-child { margin-bottom: 0 !important; }
-
-/* Footer Social */
-.ft-social {
-  height: 40px;
-  width: 40px;
-  border: 1px solid white;
-  transition: ease-in-out 250ms;
-}
-.ft-social a { 
+.footer__logo img {
+  display: block;
+  object-fit: cover;
   height: 100%;
-  width: 100%;
-  text-decoration: none; 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;  
 }
-.ft-social:hover {
-  background-color: white;
-  border-radius: 50%;
+.footer {
+  display: grid;
+  grid-gap: 12px;
+  /* grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));   */
+  grid-template-columns: 22% 13% 18% 14%  29%;  
 }
-.ft-social:hover .ico { color: purple; }
-@media (max-width: 960px) {
-  .sc { width: 100% !important; }
+
+.footer__content__title {
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 1;  
+  margin-bottom: 15px;
 }
-@media (min-width: 1263px) {
-  .sc { width: 60% !important; }
+.footer__content__title span {
+  border-bottom: 1px solid rgb(255 255 255 / 50%);  
+}
+
+@media (max-width: 1100px) {
+  .footer { grid-gap: 12px; grid-template-columns: repeat(auto-fit, minmax(32%, 1fr)); }  
+}
+@media (max-width: 760px) {
+  .footer { grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); }  
+}
+@media (max-width: 500px) {
+  .footer { grid-gap: 20px; grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); }  
+  .footer__content__title { margin-bottom: 5px; }
 }
 </style>
