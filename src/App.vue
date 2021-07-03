@@ -1,32 +1,113 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <Navbar />
+    <v-main>
+      <router-view/>
+    </v-main>
+    <Footer />
+  </v-app>
 </template>
 
+<script>
+import Navbar from './components/Navbar.vue'
+import Footer from './components/Footer.vue'
+export default {
+  name: 'App',
+  components: { Navbar, Footer },
+  data: () => ({
+    //
+  }),
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* { 
+  text-decoration: none;
+  font-family: courier,arial,helvetica; 
+}
+html { scroll-behavior: smooth; }
+.container { max-width: 1250px !important; }
+
+/* Test banner */
+.text__banner {
+  background: linear-gradient(90deg, rgba(243,108,39,1) 0%, rgba(156,39,176,1) 100%); 
+  height: 60vh;
+  margin-bottom: 30px;
+}
+.text__banner__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
   text-align: center;
-  color: #2c3e50;
+  overflow: hidden;
+}
+.text__banner__content span {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1 !important;
+}
+@media (max-width: 1060px) {
+  .text__banner { height: 50vh; }
+}
+@media (max-width: 840px) {
+  .text__banner { height: 40vh; }
 }
 
-#nav {
-  padding: 30px;
+/* Spell Business */
+.spell_business {
+  width: 100%;
+  background-color: rgba(227, 118, 58, .075);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.spell_business__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(31%, 1fr));
+  grid-gap: 30px;
+}
+.spell_business__item {
+  border-radius: 10px;
+  box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+@media (max-width: 1250px) {
+  .spell_business__container { grid-gap: 25px; }
+}
+@media (max-width: 960px) {
+  .spell_business__container { grid-gap: 20px; }
+  .spell_business__container { grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); }
+}
+@media (max-width: 800px) {
+  .spell_business__container { grid-gap: 16px; }
+  .spell__foundation__container { grid-template-columns: 100%; }
+  .spell__foundation__container p { line-height: 1.4; }
+}
+@media (max-width: 600px) {
+  .spell_business__container { grid-gap: 12px; }
+}
+@media (max-width: 450px) {
+  .spell_business__container { grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); }
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
+/* Client */
+.client {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(23%, 1fr));
+  grid-gap: 20px;
+}
+.client__item {
+  border: 1px solid rgb(255 255 255 / 75%);
+  overflow: hidden;
+}
+@media (max-width: 960px) {
+  .client { grid-gap: 16px; grid-template-columns: repeat(auto-fit, minmax(48%, 1fr)); } 
 }
 </style>
