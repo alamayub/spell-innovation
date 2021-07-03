@@ -44,6 +44,7 @@ export default {
       { name: 'About Us', to: '/about', icon: 'mdi-information-outline' },
       { name: 'News', to: '/news', icon: 'mdi-newspaper' },
       { name: 'Blogs', to: '/blogs', icon: 'mdi-post' },
+      { name: 'Team', to: '/team', icon: 'mdi-account-group-outline' },
       { name: 'Contact', to: '/contact', icon: 'mdi-account-box-outline' },
     ]
   })
