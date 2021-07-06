@@ -1,36 +1,18 @@
 <template>
-  <div>
-    <v-app-bar app color="white" elevate-on-scroll>
-      <div class="container pa-0 d-flex justify-space-between align-center" style="width: 100%;">
-        <div>
-          <v-img alt="Spell Innovation Logo" class="shrink d-block d-sm-block d-md-none" contain src="../assets/logo.png" transition="scale-transition" width="55" />
-          <v-img alt="Sepll Innovation Logo & Name" class="shrink d-none d-sm-none d-md-block" contain src="../assets/logo_text.png" transition="scale-transition" width="170" />
-        </div>
-        <v-spacer></v-spacer>
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-block d-sm-block d-md-none secondary--text"></v-app-bar-nav-icon>
-        <div class="d-none d-sm-none d-md-block">
-          <v-btn v-for="(item, i) in  items" :key="i" color="secondary" class="text-capitalize mr-2 btn" style="font-weight: 500;" text :to="item.to">
-            <v-icon size="18" left>{{ item.icon }}</v-icon>
-            <span>{{ item.name }}</span>
-          </v-btn>
-        </div>
-      </div>
-    </v-app-bar>
-    <v-navigation-drawer style="background: linear-gradient(90deg, rgba(243,108,39,1) 0%, rgba(156,39,176,1) 100%);" dark v-model="drawer" app bottom>
-      <v-list expand nav tile>
-        <v-list-item-group v-model="selectedItem">
-          <v-list-item v-for="(item, i) in items" :key="i" :to="`${item.to}`" @click="drawer = false">
-            <v-list-item-icon class="mx-3">
-              <v-icon size='20' v-text="item.icon"></v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title v-text="item.name" style="letter-spacing: 1px;" />
-            </v-list-item-content>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
-  </div>  
+  <v-app-bar app color="white" elevate-on-scroll>
+    <div>
+      <v-img alt="Spell Innovation Logo" class="shrink d-block d-sm-block d-md-none" contain src="../assets/logo.png" transition="scale-transition" width="55" />
+      <v-img alt="Sepll Innovation Logo & Name" class="shrink d-none d-sm-none d-md-block" contain src="../assets/logo_text.png" transition="scale-transition" width="170" />
+    </div>
+    <v-spacer></v-spacer>
+    <v-app-bar-nav-icon @click.stop="drawer = !drawer" class="d-block d-sm-block d-md-none secondary--text"></v-app-bar-nav-icon>
+    <div class="d-none d-sm-none d-md-block">
+      <v-btn v-for="(item, i) in  items" :key="i" color="secondary" class="text-capitalize mr-2 btn" style="font-weight: 500;" text :to="item.to">
+        <v-icon size="18" left>{{ item.icon }}</v-icon>
+        <span>{{ item.name }}</span>
+      </v-btn>
+    </div>
+  </v-app-bar> 
 </template>
 
 <script>
@@ -47,10 +29,34 @@ export default {
       { name: 'Team', to: '/team', icon: 'mdi-account-group-outline' },
       { name: 'Contact', to: '/contact', icon: 'mdi-account-box-outline' },
     ]
-  })
+  }),
+  watch: {
+    m () {
+      console.log(this.$vuetify.breakpoint.name)
+    }
+  },
+  created() {
+    console.log(this.$vuetify.breakpoint.name)
+  }
 }
 </script>
 
 <style scoped>
 .btn:last-child { margin-right: 0 !important; }
 </style>
+
+
+<!-- <v-navigation-drawer stateless style="background: linear-gradient(90deg, rgba(243,108,39,1) 0%, rgba(156,39,176,1) 100%);" dark v-model="drawer" app>
+      <v-list expand nav tile>
+        <v-list-item-group v-model="selectedItem">
+          <v-list-item v-for="(item, i) in items" :key="i" :to="`${item.to}`" @click="drawer = false">
+            <v-list-item-icon class="mx-3">
+              <v-icon size='20' v-text="item.icon"></v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title v-text="item.name" style="letter-spacing: 1px;" />
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer> -->

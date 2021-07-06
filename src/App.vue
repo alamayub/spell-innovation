@@ -30,6 +30,7 @@ html { scroll-behavior: smooth; }
   max-width: 1250px !important; 
   margin-right: auto;
   margin-left: auto;
+  padding: 12px;
 }
 
 /* Test banner */
