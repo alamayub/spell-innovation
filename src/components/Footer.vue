@@ -6,7 +6,7 @@
           <div class="footer__logo">
             <img src="../assets/logo_text.png" alt="Spell Innovation Logo & Text" >
           </div>
-          <div class="mt-3 d-flex flex-wrap justify-center" style="grid-gap: 8px;">
+          <div class="mt-4 d-flex flex-wrap justify-center" style="grid-gap: 8px;">
             <v-btn icon v-for="(social, i) in socials" :key="i" class="white primary--text" target="_blank" :href="social.to">
               <v-icon size="18">{{ social.icon }}</v-icon>
             </v-btn>  
@@ -38,7 +38,7 @@
         </div>
         <div>
           <div class="footer__content__title">
-            <p style="lin-height: 1;"><strong>SPELL INNOVATION</strong>&nbsp;Pvt. Ltd.</p>
+            <p style="lin-height: 1;">SPELL INNOVATION&nbsp;Pvt. Ltd.</p>
           </div>  
           <div style="display: grid; grid-gap: 4px;">
             <div v-for="(c, i) in contacts" :key="i" class="d-flex" style="grid-gap: 8px;">

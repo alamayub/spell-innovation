@@ -21,10 +21,7 @@ export default {
 </script>
 
 <style>
-* { 
-  text-decoration: none;
-  font-family: courier, arial, helvetica; 
-}
+* { text-decoration: none; }
 html { scroll-behavior: smooth; }
 .container { 
   max-width: 1250px !important; 
