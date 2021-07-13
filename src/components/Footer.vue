@@ -118,9 +118,7 @@ export default {
   line-height: 1;  
   margin-bottom: 15px;
 }
-.footer__content__title span {
-  border-bottom: 1px solid rgb(255 255 255 / 50%);  
-}
+.footer__content__title span { border-bottom: 1px solid rgb(255 255 255 / 50%); }
 
 @media (max-width: 1100px) {
   .footer { grid-gap: 12px; grid-template-columns: repeat(auto-fit, minmax(32%, 1fr)); }  
